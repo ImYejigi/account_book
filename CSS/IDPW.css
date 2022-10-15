@@ -1,0 +1,35 @@
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px rgb(75, 89, 96) solid;
+    background-color: transparent;
+    height: 35px;
+}
+.main-items{
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    margin-top: 230px;
+}
+.find-id{
+    display:flex;
+}
+.find-pw{
+    display: flex;
+}
+.main-id-phone{
+    margin: 20px;
+}
+.main-id-chkphone{
+    margin:  20px;
+}
+#find-id-btn{
+    margin: 20px;
+}
+.find-mail{
+    
+}
+#find-id-save{
+    margin-left:110px ;
+}
