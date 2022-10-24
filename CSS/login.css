@@ -1,0 +1,35 @@
+.logo_image {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+.login_page {
+    margin:0 auto;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(228, 245, 196);
+    display: grid;
+    place-items: center;
+    border-radius: 2em;
+}
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px rgb(75, 89, 96) solid;
+    background-color: transparent;
+    width: 250px;
+    height: 35px;
+}
+.btn1 {
+    border-radius: 3em;
+    border: 1;
+}
+ a {
+    text-decoration: none;
+ }
