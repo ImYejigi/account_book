@@ -58,3 +58,7 @@ button {
 .main-pw-btnSave{
     margin-left: 250px;
 }
+img {
+    display: flex;
+    justify-content: center;
+}

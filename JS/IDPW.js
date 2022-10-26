@@ -1,22 +1,15 @@
-function changePhone1(){
-    const phone1 = document.getElementById("phone1").value // 010
-    if(phone1.length === 3){
-        document.getElementById("phone2").focus();
-    }
-}
-function changePhone2(){
-    const phone2 = document.getElementById("phone2").value // 010
-    if(phone2.length === 4){
-        document.getElementById("phone3").focus();
-    }
-}
-function changePhone3(){
-    const phone3 = document.getElementById("phone3").value // 010
-    if(phone3.length === 4){
-      document.getElementById("sendMessage").focus();
-      document.getElementById("sendMessage").setAttribute("style","background-color:yellow;")
-      document.getElementById("sendMessage").disabled = false;
-    }
-}
+const regemail = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
 
+// 전화번호 유효성 검사
+    const changePhone1 = (target) => {
+        target.value = target.value.replace(/[^0-9]/g, '')
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
+        .replace(/(\-{1,2})$/g, "");
+       }
 
+function chkemail(){
+    const regemail = document.getElementById("find-mail").value;
+    if(!regemail.test(regemail.value)){
+        alert("메일 양식에 맞춰 써주세요.")
+    }
+}

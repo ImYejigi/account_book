@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="main-header"><img src="" alt=""></div>
+  <div class="main-header"><img src="/img/Group 3.jpg" alt=""></div>
   <div class="main-items">
     <div class="main-boder">
       <div class="find-id">
@@ -20,7 +20,7 @@
           </div>
           <div class="main-input">
             <p>이메일</p>
-            <input type="email" id="find-mail" placeholder="이메일">
+            <input type="email" id="find-mail" placeholder="이메일" oninput="chkemail()">
             <button type="button" id="find-id-btn">인증요청</button>
           </div>
 
@@ -44,9 +44,7 @@
           </div>
           <div class="main-input">
             <p>전화번호</p>
-            <input type="tel" id="phone1" size="3" value="010" maxlength="3" oninput="changePhone1()">
-            - <input type="tel" id="phone2" size="4" maxlength="4" oninput="changePhone2()">
-            - <input type="tel" id="phone3" size="4" maxlength="4" oninput="changePhone3()">
+            <input type="text" oninput="changePhone1(this)" maxlength="13" placeholder="전화번호를 입력해보세요!" autofocus>
           </div>
           <div class="main-pw-btnSave">
             <button type="button" id="find-pw-save" size="15" value="">확인</button>
