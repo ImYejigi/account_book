@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html"; charset= "UTF-8" PageEncoding="UTF-8" %>
-<%@ include file="../header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 <body>
 	<div style="text-align: center">
 	<h3>* 아이디 중복확인 *</h3>
-    <form method="post" action="idCheckPro.jsp" onsubmit="return blankCheck(this)">
+    <form method="post" action="#" onsubmit="return blankCheck(this)">
     아이디 : <input type="text" name="id" maxlength="10" autofocus>
     <input type="submit" value="중복확인">
     </form>
