@@ -5,7 +5,7 @@
 <head>
 <title></title>
 <script language="javascript">
-//ÁÙ Ãß°¡
+//ï¿½ï¿½ ï¿½ß°ï¿½
 function addRows(){ 
 	var table = document.getElementById('emptbl');
 	var rowCount = table.rows.length;
@@ -18,7 +18,7 @@ function addRows(){
 		cell.innerHTML=copycel;
 	}
 }
-//ÁÙ »èÁ¦
+//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function deleteRows(){
 	var table = document.getElementById('emptbl');
 	var rowCount = table.rows.length;
@@ -27,7 +27,7 @@ function deleteRows(){
 		rowCount--;
 	}
 	else{
-		alert('¸ðµÎ »èÁ¦´Â ºÒ°¡´ÉÇÕ´Ï´Ù');
+		alert('ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½');
 	}
 }
 </script>
@@ -41,18 +41,18 @@ function deleteRows(){
         <td id="col0"><input type="text" name="empname[]" value="" /></td> 
         <td id="col1"> 
         <select name="department[]" id="dept"> 
-            <option value="0">¹»</option> 
-            <option value="1">³Ö</option>
-            <option value="2">À»</option>
-            <option value="3">±î</option>
+            <option value="0">ï¿½ï¿½</option> 
+            <option value="1">ï¿½ï¿½</option>
+            <option value="2">ï¿½ï¿½</option>
+            <option value="3">ï¿½ï¿½</option>
            </select> 
         </td> 
     </tr>  
     <table> 
     <tr>
         <td colspan="5" bgcolor="#FFFFFF" height="25" style="padding-left: 150px;">
-        <input name="addButton" type="button" style="cursor:hand" onClick="addRows()" value="Ãß°¡">
-        <input name="deleteButton"type="button" value="»èÁ¦" onClick="deleteRows()" style="cursor:hand">
+        <input name="addButton" type="button" style="cursor:hand" onClick="addRows()" value="ï¿½ß°ï¿½">
+        <input name="deleteButton"type="button" value="ï¿½ï¿½ï¿½ï¿½" onClick="deleteRows()" style="cursor:hand">
     </tr>
     </table>
     
@@ -60,7 +60,7 @@ function deleteRows(){
 
  <tr>
     <td align="center">
-    <input type="button" name="button" value="È®ÀÎ" onClick="frmCheck();">
+    <input type="button" name="button" value="È®ï¿½ï¿½" onClick="frmCheck();">
     </td>
   </tr>
 </form>

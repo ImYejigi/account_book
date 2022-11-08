@@ -19,7 +19,7 @@ button {
 .main-items{
     display: flex;
     justify-content: center;
-    margin-top: 230px;
+    margin-top: 180px;
 
 }
 .main-boder{
@@ -59,6 +59,10 @@ button {
     margin-left: 250px;
 }
 img {
+    display: flex;
+    justify-content: center;
+}
+.main-header {
     display: flex;
     justify-content: center;
 }

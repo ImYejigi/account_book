@@ -7,23 +7,23 @@
 
     <!-- CSS -->
 	<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
-	<!-- ¾ÆÀÌÄÜ -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 	
 
-    <title>À¶ÇÕÇÁ·ÎÁ§Æ®</title>
+    <title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®</title>
     <style>
         body {
           overflow:hidden
         }
         #main_div{
-            position: relative; /* absolute´Â ºÎ¸ð°¡ relativeÀÏ ¶§ ºÎ¸ð¸¦ µû¶ó°£´Ù. */
+            position: relative; /* absoluteï¿½ï¿½ ï¿½Î¸ï¿½ relativeï¿½ï¿½ ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ó°£´ï¿½. */
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 ºñÀ² */
+            padding-bottom: 56.25%; /* 16:9 ï¿½ï¿½ï¿½ï¿½ */
         }
         #main_if {
             position: absolute;
-            width: 100%; /* ºÎ¸ð¿¡ ¸Â°Ô ²Ë Ã¤¿î´Ù. */
+            width: 100%; /* ï¿½Î¸ï¿½ ï¿½Â°ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½. */
             height: 100%;
         }
     </style>
@@ -43,16 +43,16 @@
                     </a>
                     <a href="#" class="nav__link">
                         <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">¼Òºñ³»¿ªÅë°è</span>
+                        <span class="nav_name">ï¿½Òºñ³»¿ï¿½ï¿½ï¿½ï¿½</span>
                     </a>
                     <a href="Goal.jsp" class="nav__link" target="body_frame">
                     	<ion-icon name="calculator-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">¸ñÇ¥¼ÒºñÄ¡¼³Á¤</span>
+                        <span class="nav_name">ï¿½ï¿½Ç¥ï¿½Òºï¿½Ä¡ï¿½ï¿½ï¿½ï¿½</span>
                     </a>
                 </div>
                 <a href="login.jsp" class="nav__link">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">·Î±×¾Æ¿ô</span>
+                    <span class="nav_name">ï¿½Î±×¾Æ¿ï¿½</span>
                 </a>
             </div>
         </nav>
@@ -60,7 +60,7 @@
     <div id = "main_div" style="background-color:white;">
         <iframe id = "main_if" src="Calender.jsp" name = "body_frame" frameborder="0px" ></iframe>   
     </div>
-    	<!-- ¹ÝÀÀÇü JS -->
+    	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JS -->
 	<script src="../JS/main.js"></script>
 </body>
 </html>

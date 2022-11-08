@@ -30,13 +30,13 @@
 	if (Year == null && Month == null) {
 		year = currentYear;
 		month = currentMonth;
-	} else { //³ªÅ¸³»°íÀÚ ÇÏ´Â ³¯Â¥¸¦ ¼ýÀÚ·Î º¯È¯
+	} else { //ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½È¯
 		year = Integer.parseInt(Year);
 		month = Integer.parseInt(Month);
 		if (month < 0) {
 			month = 11;
 			year = year - 1;
-		} //1¿ùºÎÅÍ 12¿ù±îÁö ¹üÀ§ ÁöÁ¤.
+		} //1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		if (month > 11) {
 			month = 0;
 			year = year + 1;
@@ -45,62 +45,62 @@
 	%>
 	<center>
 		<table border=0>
-			<!-- ´Þ·Â »ó´Ü ºÎºÐ, ´õ ÁÁÀº ¹æ¹ýÀÌ ¾øÀ»±î? -->
+			<!-- ï¿½Þ·ï¿½ ï¿½ï¿½ï¿½ ï¿½Îºï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? -->
 			<tr class="datepreview">
 				<td align=left width=200>
-					<!-- ³â µµ--> <a
-					href="Calendar.jsp?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">¢¸</a>
+					<!-- ï¿½ï¿½ ï¿½ï¿½--> <a
+					href="Calendar.jsp?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">ï¿½ï¿½</a>
 					<%
 					out.print(year);
-					%>³â <a
-					href="Calendar.jsp?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">¢º</a>
+					%>ï¿½ï¿½ <a
+					href="Calendar.jsp?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">ï¿½ï¿½</a>
 				</td>
 				<td align=center width=300>
-					<!-- ¿ù --> <a
-					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">¢¸</a>
+					<!-- ï¿½ï¿½ --> <a
+					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">ï¿½ï¿½</a>
 					<%
 					out.print(month + 1);
-					%>¿ù <a
-					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">¢º</a>
+					%>ï¿½ï¿½ <a
+					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">ï¿½ï¿½</a>
 				</td>
 				<td align=right width=200><input onclick="income_popup()"
-					type="button" value="¼öÀÔ"> <input onclick="spend_popup()"
-					type="button" value="ÁöÃâ"></td>
+					type="button" value="ï¿½ï¿½ï¿½ï¿½"> <input onclick="spend_popup()"
+					type="button" value="ï¿½ï¿½ï¿½ï¿½"></td>
 			</tr>
 
 		</table>
 		<table border=1 cellspacing=0>
-			<!-- ´Þ·Â ºÎºÐ -->
+			<!-- ï¿½Þ·ï¿½ ï¿½Îºï¿½ -->
 			<tr>
-				<td style="color:red" width=100>ÀÏ</td>
-				<!-- ÀÏ=1 -->
-				<td width=100>¿ù</td>
-				<!-- ¿ù=2 -->
+				<td style="color:red" width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=1 -->
+				<td width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=2 -->
 				<td width=100>È­</td>
 				<!-- È­=3 -->
-				<td width=100>¼ö</td>
-				<!-- ¼ö=4 -->
-				<td width=100>¸ñ</td>
-				<!-- ¸ñ=5 -->
-				<td width=100>±Ý</td>
-				<!-- ±Ý=6 -->
-				<td style="color:blue" width=100>Åä</td>
-				<!-- Åä=7 -->
+				<td width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=4 -->
+				<td width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=5 -->
+				<td width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=6 -->
+				<td style="color:blue" width=100>ï¿½ï¿½</td>
+				<!-- ï¿½ï¿½=7 -->
 			</tr>
 			<tr height=70>
 				<%
-				cal.set(year, month, 1); //ÇöÀç ³¯Â¥¸¦ ÇöÀç ¿ùÀÇ 1ÀÏ·Î ¼³Á¤
-				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //ÇöÀç³¯Â¥(1ÀÏ)ÀÇ ¿äÀÏ
-				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //ÀÌ ´ÞÀÇ ³¡³ª´Â ³¯
-				int br = 0; //7ÀÏ¸¶´Ù ÁÙ ¹Ù²Ù±â
-				for (int i = 0; i < (startDay - 1); i++) { //ºóÄ­Ãâ·Â
+				cal.set(year, month, 1); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
+				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //ï¿½ï¿½ï¿½ç³¯Â¥(1ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+				int br = 0; //7ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
+				for (int i = 0; i < (startDay - 1); i++) { //ï¿½ï¿½Ä­ï¿½ï¿½ï¿½
 					out.println("<td>&nbsp;</td>");
 					br++;
 					if ((br % 7) == 0) {
 						out.println("<br>");
 					}
 				}
-				for (int i = 1; i <= end; i++) { //³¯Â¥Ãâ·Â
+				for (int i = 1; i <= end; i++) { //ï¿½ï¿½Â¥ï¿½ï¿½ï¿½
 					if(br%7==0){
 						out.println("<td style=color:red;>" + i + "</td>");
 					}else if (br%7==6) {
@@ -113,7 +113,7 @@
 						out.println("</tr><tr height=70>");
 					}
 				}
-				while ((br++) % 7 != 0) //¸»ÀÏ ÀÌÈÄ ºóÄ­Ãâ·Â
+				while ((br++) % 7 != 0) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä­ï¿½ï¿½ï¿½
 					out.println("<td>&nbsp;</td>");
 				%>
 			</tr>
