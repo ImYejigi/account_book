@@ -69,22 +69,22 @@
 		<table border=1 cellspacing=0>
 			<!-- 달력 부분 -->
 			<tr>
-				<td style="color: red" width=100>일</td>
+				<td style="color: red" width=150>일</td>
 				<!-- 일=1 -->
-				<td width=100>월</td>
+				<td width=150>월</td>
 				<!-- 월=2 -->
-				<td width=100>화</td>
+				<td width=150>화</td>
 				<!-- 화=3 -->
-				<td width=100>수</td>
+				<td width=150>수</td>
 				<!-- 수=4 -->
-				<td width=100>목</td>
+				<td width=150>목</td>
 				<!-- 목=5 -->
-				<td width=100>금</td>
+				<td width=150>금</td>
 				<!-- 금=6 -->
-				<td style="color: blue" width=100>토</td>
+				<td style="color: blue" width=150>토</td>
 				<!-- 토=7 -->
 			</tr>
-			<tr height=70>
+			<tr height=100>
 				<%
 				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
 				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
@@ -122,7 +122,7 @@
 					}
 					br++;
 					if ((br % 7) == 0 && i != end) {
-						out.println("</tr><tr height=70>");
+						out.println("</tr><tr height=100>");
 					}
 					
 				}
