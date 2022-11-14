@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,13 +25,13 @@
 	if (Year == null && Month == null) {
 		year = currentYear;
 		month = currentMonth;
-	} else { //³ªÅ¸³»°íÀÚ ÇÏ´Â ³¯Â¥¸¦ ¼ıÀÚ·Î º¯È¯
+	} else { //ë‚˜íƒ€ë‚´ê³ ì í•˜ëŠ” ë‚ ì§œë¥¼ ìˆ«ìë¡œ ë³€í™˜
 		year = Integer.parseInt(Year);
 		month = Integer.parseInt(Month);
 		if (month < 0) {
 			month = 11;
 			year = year - 1;
-		} //1¿ùºÎÅÍ 12¿ù±îÁö ¹üÀ§ ÁöÁ¤.
+		} //1ì›”ë¶€í„° 12ì›”ê¹Œì§€ ë²”ìœ„ ì§€ì •.
 		if (month > 11) {
 			month = 0;
 			year = year + 1;
@@ -40,23 +40,23 @@
 	%>
 	<center>
 		<table border=0>
-			<!-- ´Ş·Â »ó´Ü ºÎºĞ, ´õ ÁÁÀº ¹æ¹ıÀÌ ¾øÀ»±î? -->
+			<!-- ë‹¬ë ¥ ìƒë‹¨ ë¶€ë¶„, ë” ì¢‹ì€ ë°©ë²•ì´ ì—†ì„ê¹Œ? -->
 			<tr class="datepreview">
 				<td align=left width=200>
-					<!-- ³â µµ--> <a
-					href="Calendar.jsp?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">¢¸</a>
+					<!-- ë…„ ë„--> <a
+					href="Calendar.jsp?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">â—€</a>
 					<%
 					out.print(year);
-					%>³â <a
-					href="Calendar.jsp?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">¢º</a>
+					%>ë…„ <a
+					href="Calendar.jsp?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">â–¶</a>
 				</td>
 				<td align=center width=300>
-					<!-- ¿ù --> <a
-					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">¢¸</a>
+					<!-- ì›” --> <a
+					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">â—€</a>
 					<%
 					out.print(month + 1);
-					%>¿ù <a
-					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">¢º</a>
+					%>ì›” <a
+					href="Calendar.jsp?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">â–¶</a>
 				</td>
 				<td align=right width=200>
 					<%
@@ -67,37 +67,37 @@
 
 		</table>
 		<table border=1 cellspacing=0>
-			<!-- ´Ş·Â ºÎºĞ -->
+			<!-- ë‹¬ë ¥ ë¶€ë¶„ -->
 			<tr>
-				<td style="color: red" width=150>ÀÏ</td>
-				<!-- ÀÏ=1 -->
-				<td width=150>¿ù</td>
-				<!-- ¿ù=2 -->
-				<td width=150>È­</td>
-				<!-- È­=3 -->
-				<td width=150>¼ö</td>
-				<!-- ¼ö=4 -->
-				<td width=150>¸ñ</td>
-				<!-- ¸ñ=5 -->
-				<td width=150>±İ</td>
-				<!-- ±İ=6 -->
-				<td style="color: blue" width=150>Åä</td>
-				<!-- Åä=7 -->
+				<td style="color: red" width=150>ì¼</td>
+				<!-- ì¼=1 -->
+				<td width=150>ì›”</td>
+				<!-- ì›”=2 -->
+				<td width=150>í™”</td>
+				<!-- í™”=3 -->
+				<td width=150>ìˆ˜</td>
+				<!-- ìˆ˜=4 -->
+				<td width=150>ëª©</td>
+				<!-- ëª©=5 -->
+				<td width=150>ê¸ˆ</td>
+				<!-- ê¸ˆ=6 -->
+				<td style="color: blue" width=150>í† </td>
+				<!-- í† =7 -->
 			</tr>
 			<tr height=100>
 				<%
-				cal.set(year, month, 1); //ÇöÀç ³¯Â¥¸¦ ÇöÀç ¿ùÀÇ 1ÀÏ·Î ¼³Á¤
-				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //ÇöÀç³¯Â¥(1ÀÏ)ÀÇ ¿äÀÏ
-				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //ÀÌ ´ŞÀÇ ³¡³ª´Â ³¯
-				int br = 0; //7ÀÏ¸¶´Ù ÁÙ ¹Ù²Ù±â
-				for (int i = 0; i < (startDay - 1); i++) { //ºóÄ­Ãâ·Â
+				cal.set(year, month, 1); //í˜„ì¬ ë‚ ì§œë¥¼ í˜„ì¬ ì›”ì˜ 1ì¼ë¡œ ì„¤ì •
+				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //í˜„ì¬ë‚ ì§œ(1ì¼)ì˜ ìš”ì¼
+				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //ì´ ë‹¬ì˜ ëë‚˜ëŠ” ë‚ 
+				int br = 0; //7ì¼ë§ˆë‹¤ ì¤„ ë°”ê¾¸ê¸°
+				for (int i = 0; i < (startDay - 1); i++) { //ë¹ˆì¹¸ì¶œë ¥
 					out.println("<td>&nbsp;</td>");
 					br++;
 					if ((br % 7) == 0) {
 						out.println("<br>");
 					}
 				}
-				for (int i = 1; i <= end; i++) { //³¯Â¥Ãâ·Â
+				for (int i = 1; i <= end; i++) { //ë‚ ì§œì¶œë ¥
 					if (br % 7 == 0) {
 						if (i==currentDate){
 							out.println("<td onClick=\"popup()\"style=color:red; \"font-weight:bold;\">" + i + "</td>");
@@ -126,7 +126,7 @@
 					}
 					
 				}
-				while ((br++) % 7 != 0) //¸»ÀÏ ÀÌÈÄ ºóÄ­Ãâ·Â
+				while ((br++) % 7 != 0) //ë§ì¼ ì´í›„ ë¹ˆì¹¸ì¶œë ¥
 					out.println("<td>&nbsp;</td>");
 				%>
 			</tr>
