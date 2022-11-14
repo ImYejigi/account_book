@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title></title>
 <script language="javascript">
-//�� �߰�
+//줄 추가
 function addRows(){ 
 	var table = document.getElementById('emptbl');
 	var rowCount = table.rows.length;
@@ -18,7 +18,7 @@ function addRows(){
 		cell.innerHTML=copycel;
 	}
 }
-//�� ����
+//줄 삭제
 function deleteRows(){
 	var table = document.getElementById('emptbl');
 	var rowCount = table.rows.length;
@@ -27,7 +27,7 @@ function deleteRows(){
 		rowCount--;
 	}
 	else{
-		alert('��� ������ �Ұ����մϴ�');
+		alert('모두 삭제는 불가능합니다');
 	}
 }
 </script>
@@ -35,32 +35,33 @@ function deleteRows(){
 </head>
 <body>
 <form name="form" method="post">
+<h3>목표소비치</h3>
 <table id = "emptbl" width="400" border="0" cellspacing="0" cellpadding="0">
     <tr> 
-        
-        <td id="col0"><input type="text" name="empname[]" value="" /></td> 
-        <td id="col1"> 
+        <td id="col0"> 
         <select name="department[]" id="dept"> 
-            <option value="0">��</option> 
-            <option value="1">��</option>
-            <option value="2">��</option>
-            <option value="3">��</option>
-           </select> 
+            <option value="0">식비</option> 
+            <option value="1">교통비</option>
+            <option value="2">여가활동</option>
+            <option value="3">패션/미용</option>
+            <option value="4">기타</option>
+        </select> 
         </td> 
+        <td id="col1" style="padding-right: 105px;"><input type="text" name="empname[]" value="" /></td> 
     </tr>  
     <table> 
     <tr>
-        <td colspan="5" bgcolor="#FFFFFF" height="25" style="padding-left: 150px;">
-        <input name="addButton" type="button" style="cursor:hand" onClick="addRows()" value="�߰�">
-        <input name="deleteButton"type="button" value="����" onClick="deleteRows()" style="cursor:hand">
+        <td colspan="5" bgcolor="#FFFFFF" height="25" style="padding-left: 168px;">
+        <input name="addButton" type="button" style="cursor:hand" onClick="addRows()" value="추가">
+        <input name="deleteButton"type="button" value="삭제" onClick="deleteRows()" style="cursor:hand">
     </tr>
     </table>
-    
+    	
  </table>
 
  <tr>
     <td align="center">
-    <input type="button" name="button" value="Ȯ��" onClick="frmCheck();">
+    <input type="button" name="button" value="확인" onClick="frmCheck();" style="margin-left: 218px;">
     </td>
   </tr>
 </form>
