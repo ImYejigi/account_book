@@ -40,6 +40,7 @@ if (signUp.getUSER_ID() == null|| signUp.getUSER_PW() == null ||signUp.getUSER_N
     
     //가입성공
     else{
+       session.setAttribute("userID", user.getUserID()); //로그아웃을 하기위한 세션 추가
        PrintWriter script = response.getWriter();
        script.println("<script>");
        script.println("location.href='login.jsp'");
