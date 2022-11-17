@@ -16,7 +16,7 @@ public class UserDAO {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url ="jdbc:oracle:thin:@localhost:1521:xe";
 				String id = "yejik";
-				String pw = "qwer12345";
+				String pw = "qwer1234";
 				conn = DriverManager.getConnection(url,id,pw);
 			}catch(Exception e) {
 				System.out.println("드라이버 호출 에러");
@@ -45,7 +45,7 @@ public class UserDAO {
 		public int join(ACC_USER ac) {
 			int result = 0;
 			
-			String sql = "insert into ACC_USER values(?,?,?,?,SYSDATE,null)";
+			String sql = "insert into ACC_USER values(?,?,?,?,SYSDATE)";
 			
 			try {
 				
@@ -58,7 +58,7 @@ public class UserDAO {
 				
 				//sql 실행
 				result = pstmt.executeUpdate();
-				
+				return result;
 			}catch(Exception e) {
 				e.printStackTrace();
 			}finally {

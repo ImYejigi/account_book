@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
 
     <!-- CSS -->
-	<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+	<link href="../css/Main.css" rel="stylesheet" type="text/css">
 	<!-- 아이콘 -->
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 	
@@ -50,7 +50,7 @@
                         <span class="nav_name">목표소비치설정</span>
                     </a>
                 </div>
-                <a href="logoutAction.jsp" class="nav__link">
+                <a href="loginAction.jsp" class="nav__link">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">로그아웃</span>
                 </a>
@@ -58,9 +58,9 @@
         </nav>
     </div>
     <div id = "main_div" style="background-color:white;">
-        <iframe id = "main_if" src="Calender.jsp" name = "body_frame" frameborder="0px" ></iframe>   
+        <iframe id = "main_if" src="Calendar.jsp" name = "body_frame" frameborder="0px" ></iframe>   
     </div>
     	<!-- 반응형 JS -->
-	<script src="../JS/main.js"></script>
+	<script src="../js/main.js"></script>
 </body>
 </html>
