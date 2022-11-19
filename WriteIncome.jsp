@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%
+	int  year = Integer.parseInt(request.getParameter("year"));
+	int month = Integer.parseInt(request.getParameter("month")) + 1;
+	int day = Integer.parseInt(request.getParameter("day"));
+	
+	//Calendar cal = Calendar.getInstance();
+	//cal.set(year, month, day);
+
+	String _month = month < 10 ? "0"+month : ""+month;
+	String date = year + "-" + _month + "-" + day;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +30,7 @@
 		<input type='radio' id="income" name='write' value="in" checked/>수입
 		<input type='radio' id="spend" name='write' value="out" onclick="spend_check();"/>지출
 			<p>
-				날짜 입력 : <input type="date" name="date" id="date">
+				날짜 : <%=date%>
 			<div>
 				<p id="write">
 					수입 분류 : <select name="income_pattern">

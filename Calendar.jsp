@@ -6,8 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>calendar</title>
 <script type="text/javascript">
-	function popup() {
-		window.open("WriteIncome.jsp", "income",
+	function popup(el) {
+		
+		
+	// ?year=2022&month=11
+		const qs = location.search.replace("?", "").split("&")
+						.reduce((acc, v) => {
+							// v  - year=2022
+							v = v.split("=");
+							acc[v[0]] = v[1];
+							return acc;
+						}, {});
+	
+		const date = new Date();
+		let select_year = qs.year || date.getFullYear();
+		let select_month = qs.month || date.getMonth();
+	
+		const day = el.innerHTML;
+		console.log(day);
+		console.log(location.search);
+		var newPage = window.open("WriteIncome.jsp?day=" + day + "&month=" + select_month + "&year=" + select_year, "income",
 				"width=400, height=300, top=150, left=200");
 	}
 </script>
@@ -40,7 +58,6 @@
 	%>
 	<center>
 		<table border=0>
-			<!-- 달력 상단 부분, 더 좋은 방법이 없을까? -->
 			<tr class="datepreview">
 				<td align=left width=200>
 					<!-- 년 도--> <a
@@ -100,23 +117,24 @@
 				for (int i = 1; i <= end; i++) { //날짜출력
 					if (br % 7 == 0) {
 						if (i==currentDate){
-							out.println("<td onClick=\"popup()\"style=color:red; \"font-weight:bold;\">" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\"style=color:red; \"font-weight:bold;\">" + i + "</td>");
+							
 						} else {
-							out.println("<td onClick=\"popup()\"style=color:red;>" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\"style=color:red;>" + i + "</td>");
 						}
 						
 					} else if (br % 7 == 6) {
 						if (i==currentDate){
-							out.println("<td onClick=\"popup()\"style=color:blue; \"font-weight:bold;\">" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\"style=color:blue; \"font-weight:bold;\">" + i + "</td>");
 						} else {
-							out.println("<td onClick=\"popup()\"style=color:blue;>" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\"style=color:blue;>" + i + "</td>");
 						}
 						
 					} else {
 						if(i==currentDate) {
-							out.println("<td onClick=\"popup()\"style=\"font-weight:bold;\">" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\"style=\"font-weight:bold;\">" + i + "</td>");
 						} else {
-							out.println("<td onClick=\"popup()\">" + i + "</td>");
+							out.println("<td onClick=\"popup(this)\">" + i + "</td>");
 						}
 						
 					}
