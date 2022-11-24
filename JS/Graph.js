@@ -20,7 +20,7 @@ const labels = [
     }]
   };
   var ctx = document.getElementById("myChart").getContext('2d');
-  
+  var datas = new data[]
   const config = {
     type: 'pie',
     data: data,
