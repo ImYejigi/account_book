@@ -1,0 +1,71 @@
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px rgb(75, 89, 96) solid;
+    background-color: transparent;
+    height: 35px;
+
+}
+h1 {
+    text-align: center;
+}
+button {
+    border-radius: 50px;
+    border: none;
+    height: 42px;
+    width: 100px;
+}
+.main-items{
+    display: flex;
+    justify-content: center;
+    margin-top: 140px;
+
+}
+.main-boder{
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    border-radius: 50px;
+    border-style:  solid;
+    border-color: #E4F0DA ;
+}
+
+.find-id{
+    display:flex;
+    justify-content: center;
+    flex:1;
+    margin: 30px 0px ;
+    border-right: 1px solid black;
+}
+.find-pw{
+    display: flex;
+    justify-content: center;
+    flex:1;
+    margin: 30px 0px ;
+}
+.main-input{
+    margin: 20px;
+   
+}
+.main-input > p{
+  border-left: 1px solid red ;
+  padding-left: 8px;
+  font-size: 12px;
+}
+#find-id-save{
+    margin-left:200px;
+}
+.main-pw-btnSave{
+    margin-left: 250px;
+}
+.main-header {
+    display: flex;
+    justify-content: center;
+}
+.main-header > a > img {
+    width: 240px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 1em;
+}
