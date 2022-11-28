@@ -35,19 +35,19 @@ String date = year + "-" + _month + "-" + day;
 	
 	<div id="writeamount">
 		<form name="income" method="post" action="WritePage_Process.jsp">
-			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_ID" value="in" checked 
-				onclick="income_check();"/>수입
-			<input type='radio' id="CAL_TYPE_ID" name='CAL_TYPE_ID' value="out"
-				onclick="spend_check();" />지출
+			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_WRITE" value="수입" checked 
+				onclick="income_check();"/ value=0>수입
+			<input type='radio' id="CAL_TYPE_ID" name='CAL_TYPE_WRITE' value="지출"
+				onclick="spend_check();" value=1/>지출
 			<p>
 				날짜 :
 				<%=date%>
 			<div class ="income_type">
 				<p id="write">
 					수입 분류 : <select name="CAL_TYPE_NAME" id="CAL_TYPE_NAME">
-						<option value="salary">월급</option>
-						<option value="allowance">용돈</option>
-						<option value="etc">기타</option>
+						<option value="월급">월급</option>
+						<option value="용돈">용돈</option>
+						<option value="기타">기타</option>
 					</select>
 				</p>
 			</div>

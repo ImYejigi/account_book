@@ -20,6 +20,7 @@
 	CAL_TYPE_DAO CAL_TYPE_DAO = new CAL_TYPE_DAO();
 	AMOUNT.setUSER_ID((String)session.getAttribute("id"));
 	int result = CAL_TYPE_DAO.join(AMOUNT);
+	int option = Integer.parseInt(request.getParameter("CAL_TYPE_WRITE"));
 	String userid = request.getParameter("CAL_TYPE_ID");
 	String userNAME = request.getParameter("CAL_TYPE_NAME");
 	String userM = request.getParameter("CAL_AMOUNT");
