@@ -24,7 +24,7 @@ String date = year + "-" + _month + "-" + day;
 		const spend = document.getElementById('write');
 		spend.innerHTML = '소비 분류 : <select name="pattern"><option value="food">식비</option><option value="transport">교통비</option><option value="hobby">여가 활동</option><option value="fassion">패션/미용</option><option value="etc">기타</option></select>';
 	}
-	
+
 	function income_check() {
 		const income = document.getElementById('write');
 		income.innerHTML = '수입 분류 : <select name="income_pattern"><option value="salary">월급</option><option value="allowance">용돈</option><option value="etc">기타</option></select>';
@@ -32,17 +32,17 @@ String date = year + "-" + _month + "-" + day;
 </script>
 </head>
 <body>
-	
+
 	<div id="writeamount">
 		<form name="income" method="post" action="WritePage_Process.jsp">
-			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_WRITE" value="수입" checked 
-				onclick="income_check();"/ value=0>수입
-			<input type='radio' id="CAL_TYPE_ID" name='CAL_TYPE_WRITE' value="지출"
-				onclick="spend_check();" value=1/>지출
+			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_WRITE" checked
+				onclick="income_check();" / value=0>수입 <input type='radio'
+				id="CAL_TYPE_ID" name='CAL_TYPE_WRITE' onclick="spend_check();"
+				value=1 />지출
 			<p>
 				날짜 :
 				<%=date%>
-			<div class ="income_type">
+			<div class="income_type">
 				<p id="write">
 					수입 분류 : <select name="CAL_TYPE_NAME" id="CAL_TYPE_NAME">
 						<option value="월급">월급</option>
