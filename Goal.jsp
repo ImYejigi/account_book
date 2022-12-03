@@ -47,7 +47,7 @@ button{
 </style>
 </head>
 <body>
-<img src="Group 3.jpg">
+<img src="../CSS/Group 3.jpg">
 <div id = "form" class= "shadow p-3 mb-5 bg-body rounded">
 
 <table style="border: 1px;">
