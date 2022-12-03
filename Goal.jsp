@@ -3,67 +3,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
-<script language="javascript">
-//줄 추가
-function addRows(){ 
-	var table = document.getElementById('emptbl');
-	var rowCount = table.rows.length;
-	var cellCount = table.rows[0].cells.length; 
-	var row = table.insertRow(rowCount);
-	for(var i =0; i <= cellCount; i++){
-		var cell = 'cell'+i;
-		cell = row.insertCell(i);
-		var copycel = document.getElementById('col'+i).innerHTML;
-		cell.innerHTML=copycel;
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script type = "text/javascript">
+function tableCreate(){
+	var tc = new Array();
+	var html = '';
+				
+	var exp = $("#inexp").val();
+	var cost = $("#incost").val();
+	
+	html += '<tr>';
+	html += '<td style="padding-left: 270px;">'+exp+'</td>';
+	html += '<td style="padding-left: 88px;">'+cost+'원</td>';
+	html += '</tr>';
+	html += '<hr>';
+				
+	$("#dynamicTable").append(html);
+				
+	$("#inexp").val('지출유형');
+	$("#incost").val('');
 	}
-}
-//줄 삭제
-function deleteRows(){
-	var table = document.getElementById('emptbl');
-	var rowCount = table.rows.length;
-	if(rowCount > '1'){
-		var row = table.deleteRow(rowCount-1);
-		rowCount--;
+function tableDelete(){
+	$('#dynamicTable tbody tr:last').remove();
 	}
-	else{
-		alert('모두 삭제는 불가능합니다');
-	}
-}
 </script>
-
+<style type="text/css">
+body{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+#form{
+    border-radius: 20px;
+    margin-top: 18px;
+    background-color: rgba(232, 243, 238, 0.5);
+}
+button{
+	border : 1px;
+}
+</style>
 </head>
 <body>
-<form name="form" method="post">
-<h3>목표소비치</h3>
-<table id = "emptbl" width="400" border="0" cellspacing="0" cellpadding="0">
-    <tr> 
-        <td id="col0"> 
-        <select name="department[]" id="dept"> 
-            <option value="0">식비</option> 
-            <option value="1">교통비</option>
-            <option value="2">여가활동</option>
-            <option value="3">패션/미용</option>
-            <option value="4">기타</option>
-        </select> 
-        </td> 
-        <td id="col1" style="padding-right: 105px;"><input type="text" name="empname[]" value="" /></td> 
-    </tr>  
-    <table> 
-    <tr>
-        <td colspan="5" bgcolor="#FFFFFF" height="25" style="padding-left: 168px;">
-        <input name="addButton" type="button" style="cursor:hand" onClick="addRows()" value="추가">
-        <input name="deleteButton"type="button" value="삭제" onClick="deleteRows()" style="cursor:hand">
-    </tr>
-    </table>
-    	
- </table>
+<img src="Group 3.jpg">
+<div id = "form" class= "shadow p-3 mb-5 bg-body rounded">
 
- <tr>
-    <td align="center">
-    <input type="button" name="button" value="확인" onClick="frmCheck();" style="margin-left: 218px;">
-    </td>
-  </tr>
-</form>
+<table style="border: 1px;">
+<thead>
+	<tr>
+		<th style="padding-left: 260px;">지출유형</th>
+		<th style="padding-left: 70px;">목표금액(원)</th>
+	</tr>
+</thead>
+</table>
+<hr>
+<table id = "dynamicTable">
+<tbody id="dynamicTbody">
+	
+</tbody>
+</table>
+<div style="padding-left: 250px;">
+<select id="inexp" > 
+	<option value="지출유형" selected>지출유형</option> 
+	<option value="식비">식비</option> 
+	<option value="교통비">교통비</option>
+	<option value="여가활동">여가활동</option>
+	<option value="패션/미용">패션/미용</option>
+	<option value="기타">기타</option>
+</select> 
+<input type="text" placeholder = "목표 금액 입력"  id="incost">
+<button onclick="tableCreate()">+</button>
+<button onclick="tableDelete()">-</button>
+</div>
+</div>
 </body>
 </html>
