@@ -1,10 +1,5 @@
-const labels = [
-    '식비',
-    '교통비',
-    '여가활동',
-    '패션/미용',
-    '기타',
-  ];
+
+const labels = ['식비','교통비','패션/미용','기타'];
 
   const data = {
     labels: labels,
@@ -16,11 +11,11 @@ const labels = [
                       'rgb(2, 99, 30)',
                       'rgb(255, 99, 30)',],
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20],
+      data: [1,2,3,4],
     }]
   };
   var ctx = document.getElementById("myChart").getContext('2d');
-  var datas = new data[]
+  
   const config = {
     type: 'pie',
     data: data,
@@ -31,5 +26,3 @@ const labels = [
     document.getElementById("myChart"),
     config
   );
-
-  console.log(value)
