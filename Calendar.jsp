@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="sorce.CAL_TYPE_DAO, java.util.*, java.util.stream.*"%>
+<%@ include file="dbconn.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,16 +24,20 @@
 		let select_year = qs.year || date.getFullYear();
 		let select_month = qs.month || date.getMonth();
 	
-		const day = el.innerHTML;
+		const DAY = el.innerHTML;
+		let DATE = DAY.split("<");
+		const day = DATE[0];
+		
+		
 		console.log(day);
 		console.log(location.search);
-		var newPage = window.open("WriteIncome.jsp?day=" + day + "&month=" + select_month + "&year=" + select_year, "income",
+		var newPage = window.open("WritePage.jsp?day=" + day + "&month=" + select_month + "&year=" + select_year, "income",
 				"width=400, height=300, top=150, left=200");
 	}
 </script>
 </head>
 <body>
-	<link = rel="stylesheet" href="Calendar.css">
+	<link = rel="stylesheet" href="../css/Calendar.css">
 	<%
 	java.util.Calendar cal = java.util.Calendar.getInstance();
 	int currentYear = cal.get(java.util.Calendar.YEAR);
@@ -102,12 +108,53 @@
 				<!-- 토=7 -->
 			</tr>
 			<tr height=100>
+
 				<%
-				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
+				Map<Integer, List<String[]>> data = new HashMap<>();
+				ResultSet re = null;
+				PreparedStatement pstmt = null;
+				int savedYear = 0;
+				int savedMonth = 0;
+				int savedDay = 0;
+				String DATE = "";
+				String tag = "";
+				String amount = "";
+				try {
+					String sql = "select * from CAL_TYPE";
+					pstmt = conn.prepareStatement(sql);
+					re = pstmt.executeQuery();
+
+					while (re.next()) {
+						DATE = re.getString("CAL_DATE");
+						tag = re.getString("CAL_TYPE_NAME");
+						amount = re.getString("CAL_AMOUNT");
+						String[] dateArray = DATE.split("-");
+						savedYear = Integer.parseInt(dateArray[0]);
+						savedMonth = Integer.parseInt(dateArray[1]);
+						savedDay = Integer.parseInt(dateArray[2]);
+						List<String[]> savedData = null;
+						if (data.containsKey(savedDay)) {
+					savedData = data.get(savedDay);
+						} else {
+					savedData = new ArrayList<String[]>();
+						}
+						savedData.add(new String[] { tag, "" + amount });
+						data.put(savedDay, savedData);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					if (re != null)
+						re.close();
+				}
+				//현재 날짜를 현재 월의 1일로 설정
+				cal.set(year, month, 1);
 				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
 				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
 				int br = 0; //7일마다 줄 바꾸기
 				for (int i = 0; i < (startDay - 1); i++) { //빈칸출력
+
 					out.println("<td>&nbsp;</td>");
 					br++;
 					if ((br % 7) == 0) {
@@ -115,34 +162,42 @@
 					}
 				}
 				for (int i = 1; i <= end; i++) { //날짜출력
+					String str = "";
+					if (data.containsKey(i)) {
+						List<String[]> calData = data.get(i);
+						str = calData.stream().map(s -> s[0] + " : " + s[1]).collect(Collectors.joining("<br>"));
+					}
 					if (br % 7 == 0) {
-						if (i==currentDate){
-							out.println("<td onClick=\"popup(this)\"style=color:red; \"font-weight:bold;\">" + i + "</td>");
-							
+						if (i == currentDate) {
+					out.println(
+							"<td onClick=\"popup(this)\"style=color:red; \"font-weight:bold;\">" + i + "<br>" + str + "</td>");
+					
+
 						} else {
-							out.println("<td onClick=\"popup(this)\"style=color:red;>" + i + "</td>");
+					out.println("<td onClick=\"popup(this)\"style=color:red;>" + i + "<br>" + str + "</td>");
 						}
-						
+
 					} else if (br % 7 == 6) {
-						if (i==currentDate){
-							out.println("<td onClick=\"popup(this)\"style=color:blue; \"font-weight:bold;\">" + i + "</td>");
+						if (i == currentDate) {
+					out.println(
+							"<td onClick=\"popup(this)\"style=color:blue; \"font-weight:bold;\">" + i + "<br>" + str + "</td>");
 						} else {
-							out.println("<td onClick=\"popup(this)\"style=color:blue;>" + i + "</td>");
+					out.println("<td onClick=\"popup(this)\"style=color:blue;>" + i + "<br>" + str + "</td>");
 						}
-						
+
 					} else {
-						if(i==currentDate) {
-							out.println("<td onClick=\"popup(this)\"style=\"font-weight:bold;\">" + i + "</td>");
+						if (i == currentDate) {
+					out.println("<td onClick=\"popup(this)\"style=\"font-weight:bold;\">" + i + "<br>" + str + "</td>");
 						} else {
-							out.println("<td onClick=\"popup(this)\">" + i + "</td>");
+					out.println("<td onClick=\"popup(this)\">" + i + "<br>" + str + "</td>");
 						}
-						
+
 					}
 					br++;
 					if ((br % 7) == 0 && i != end) {
 						out.println("</tr><tr height=100>");
 					}
-					
+
 				}
 				while ((br++) % 7 != 0) //말일 이후 빈칸출력
 					out.println("<td>&nbsp;</td>");

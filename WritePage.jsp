@@ -22,27 +22,28 @@ String date = year + "-" + _month + "-" + day;
 <script type="text/javascript">
 	function spend_check() {
 		const spend = document.getElementById('write');
-		spend.innerHTML = '소비 분류 : <select name="pattern"><option value="food">식비</option><option value="transport">교통비</option><option value="hobby">여가 활동</option><option value="fassion">패션/미용</option><option value="etc">기타</option></select>';
+		spend.innerHTML = '소비 분류 : <select name="CAL_TYPE_NAME" id="CAL_TYPE_NAME"><option value="식비" selected>식비</option><option value="교통비">교통비</option><option value="여가 활동">여가 활동</option><option value="패션/미용">패션/미용</option><option value="기타">기타</option></select>';
 	}
-
+	
 	function income_check() {
 		const income = document.getElementById('write');
-		income.innerHTML = '수입 분류 : <select name="income_pattern"><option value="salary">월급</option><option value="allowance">용돈</option><option value="etc">기타</option></select>';
+		income.innerHTML = '수입 분류 : <select name="CAL_TYPE_NAME" id="CAL_TYPE_NAME"><option value="월급" selected>월급</option><option value="용돈">용돈</option><option value="기타">기타</option></select>';
 	}
 </script>
 </head>
 <body>
-
+	
 	<div id="writeamount">
-		<form name="income" method="post" action="WritePage_Process.jsp">
-			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_WRITE" checked
-				onclick="income_check();" / value=0>수입 <input type='radio'
-				id="CAL_TYPE_ID" name='CAL_TYPE_WRITE' onclick="spend_check();"
-				value=1 />지출
+		<form name="income" method="post" action="WritePage_Process.jsp" accept-charset="utf-8">
+			<input type='hidden' name='CAL_DATE' value="<%=date%>">
+			<input type='radio' id="CAL_TYPE_ID" name="CAL_TYPE_ID" value="수입" checked 
+				onclick="income_check();"/>수입
+			<input type='radio' id="CAL_TYPE_ID" name='CAL_TYPE_ID' value="지출"
+				onclick="spend_check();" />지출
 			<p>
 				날짜 :
 				<%=date%>
-			<div class="income_type">
+			<div class ="income_type">
 				<p id="write">
 					수입 분류 : <select name="CAL_TYPE_NAME" id="CAL_TYPE_NAME">
 						<option value="월급">월급</option>
@@ -57,7 +58,7 @@ String date = year + "-" + _month + "-" + day;
 				<textarea name="detail" rows="3" cols="30"
 					placeholder="세부 사항을 입력하세요."></textarea>
 			<div id="save">
-				<button type="submit" value="저장">저장</button>
+				<input type="submit" value="저장">
 			</div>
 		</form>
 	</div>
